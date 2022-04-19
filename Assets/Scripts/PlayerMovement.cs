@@ -29,21 +29,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
-            rigidbody2D.velocity = Vector2.up * jumpVelocity * Time.deltaTime;
+            rigidbody2D.velocity = Vector2.up * jumpVelocity;
         }
     }
     private void MoveCheck()
     {
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            rigidbody2D.velocity = new Vector2(-moveVelocity * Time.deltaTime, rigidbody2D.velocity.y);
+            rigidbody2D.velocity = new Vector2(-moveVelocity, rigidbody2D.velocity.y);
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) { 
-            rigidbody2D.velocity=new Vector2(moveVelocity * Time.deltaTime, rigidbody2D.velocity.y);
+            rigidbody2D.velocity=new Vector2(moveVelocity , rigidbody2D.velocity.y);
         }
-        else
+        else //stop it
         {
-            //rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+            rigidbody2D.velocity = new Vector2 (0 , rigidbody2D.velocity.y);
         }
     }
     private bool IsGrounded()
