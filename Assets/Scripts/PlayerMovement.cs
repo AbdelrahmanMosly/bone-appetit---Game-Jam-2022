@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float moveVelocity = 20f;
     [SerializeField] private float jumpVelocity = 50f;
     [SerializeField] private LayerMask platformLayerMask;
 
@@ -21,8 +22,28 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(IsGrounded() && Input.GetKeyDown(KeyCode.Space)){
-            rigidbody2D.velocity= Vector2.up*jumpVelocity;
+        JumpCheck();
+        MoveCheck();
+    }
+    private void JumpCheck()
+    {
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        {
+            rigidbody2D.velocity = Vector2.up * jumpVelocity * Time.deltaTime;
+        }
+    }
+    private void MoveCheck()
+    {
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            rigidbody2D.velocity = new Vector2(-moveVelocity * Time.deltaTime, rigidbody2D.velocity.y);
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) { 
+            rigidbody2D.velocity=new Vector2(moveVelocity * Time.deltaTime, rigidbody2D.velocity.y);
+        }
+        else
+        {
+            //rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
         }
     }
     private bool IsGrounded()
