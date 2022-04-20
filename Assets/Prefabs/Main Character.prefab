@@ -134,9 +134,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 20
   m_Material: {fileID: 6200000, guid: 51236f3e58bbe2248a2ff3385652369b, type: 2}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &7079094662217012061
 BoxCollider2D:
@@ -226,3 +226,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knife: {fileID: 0}
   projectileVelocityMultiplier: 0
+  destroyTime: 0

@@ -8,6 +8,8 @@ public class PlayerThrowKnife : MonoBehaviour
     private Transform knife;
     [SerializeField]
     private float projectileVelocityMultiplier;
+    [SerializeField]
+    private float destroyTime;
 
     Vector3 aimDirection;
     private void Update()
@@ -31,6 +33,6 @@ public class PlayerThrowKnife : MonoBehaviour
         Transform knifeInstance = Instantiate(knife, transform.position, transform.rotation);
         Rigidbody2D rigidbody2D = knifeInstance.GetComponent<Rigidbody2D>();
         rigidbody2D.velocity = aimDirection * projectileVelocityMultiplier;
-        Destroy(knifeInstance.gameObject,5f);
+        Destroy(knifeInstance.gameObject, destroyTime);
     }
 }

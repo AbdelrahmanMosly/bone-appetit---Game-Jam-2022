@@ -323,8 +323,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8795264875854724926, guid: 284b0c8134551514c87f3d89f08aad89, type: 3}
     - target: {fileID: 7079094662227863415, guid: 3e0040504d6e93548bceda3771cb34f4, type: 3}
+      propertyPath: destroyTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079094662227863415, guid: 3e0040504d6e93548bceda3771cb34f4, type: 3}
       propertyPath: projectileVelocityMultiplier
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e0040504d6e93548bceda3771cb34f4, type: 3}
