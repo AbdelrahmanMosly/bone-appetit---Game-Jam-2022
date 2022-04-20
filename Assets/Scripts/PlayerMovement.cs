@@ -19,10 +19,13 @@ public class PlayerMovement : MonoBehaviour
         boxCollider2D=transform.GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         JumpCheck();
+    }
+    // Update is called once per frame
+    void FixedUpdate()
+    {
         MoveCheck();
     }
     private void JumpCheck()
