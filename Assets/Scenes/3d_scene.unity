@@ -355,7 +355,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 57.705, y: -46.759, z: 0}
 --- !u!1 &1167680164
 GameObject:
@@ -576,9 +576,8 @@ Transform:
   m_Children:
   - {fileID: 1429514156}
   - {fileID: 1167680165}
-  - {fileID: 543450652622097703}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1962834114
 MonoBehaviour:
@@ -696,7 +695,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148094392221}
-  m_LocalRotation: {x: 0, y: 0.72350955, z: 0, w: 0.6903144}
+  m_LocalRotation: {x: -0, y: 0.72350955, z: -0, w: 0.6903144}
   m_LocalPosition: {x: 1.279902, y: -0.59, z: 0.073508695}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -704,8 +703,8 @@ Transform:
   - {fileID: 6152455110017945457}
   - {fileID: 2127237744785105641}
   - {fileID: 233526042}
-  m_Father: {fileID: 1573272259}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 92.69, z: 0}
 --- !u!4 &583846040744331683
 Transform:
@@ -786,7 +785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveVelocity: 15
-  jumpVelocity: 8
+  jumpVelocity: 10
   anim: {fileID: 5866666020823062365}
   GC: {fileID: 233526044}
   PlayerMesh: {fileID: 9221529622191473361}
