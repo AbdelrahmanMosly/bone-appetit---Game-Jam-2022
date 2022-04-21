@@ -7,16 +7,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveVelocity = 20f;
     [SerializeField] private float jumpVelocity = 50f;
     [SerializeField] private LayerMask platformLayerMask;
+    [SerializeField] private Animator anim;
+    [SerializeField] private GroundCheck GC;
 
 
-    private BoxCollider2D boxCollider2D;
-    private Rigidbody2D rigidbody2D;
+    private CapsuleCollider boxCollider;
+    private Rigidbody rigidbody;
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D=transform.GetComponent<Rigidbody2D>();
-        boxCollider2D=transform.GetComponent<BoxCollider2D>();
+        rigidbody = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<CapsuleCollider>();
+        //anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -32,27 +36,32 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
-            rigidbody2D.velocity = Vector2.up * jumpVelocity;
+            rigidbody.velocity = Vector2.up * jumpVelocity;
         }
     }
     private void MoveCheck()
     {
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            rigidbody2D.velocity = new Vector2(-moveVelocity, rigidbody2D.velocity.y);
+            rigidbody.velocity = new Vector2(-moveVelocity, rigidbody.velocity.y);
+            transform.localScale = new Vector3(2, 2, -2);
+            anim.SetBool("Run",true);
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) { 
-            rigidbody2D.velocity=new Vector2(moveVelocity , rigidbody2D.velocity.y);
+            rigidbody.velocity=new Vector2(moveVelocity , rigidbody.velocity.y);
+            transform.localScale = new Vector3(2, 2, 2);
+            anim.SetBool("Run", true);
         }
         else //stop it
         {
-            rigidbody2D.velocity = new Vector2 (0 , rigidbody2D.velocity.y);
+            
+            rigidbody.velocity = new Vector2 (0 , rigidbody.velocity.y);
+            anim.SetBool("Run", false);
         }
     }
     private bool IsGrounded()
     {
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size,
-                                                            0f, Vector2.down, 1f, platformLayerMask);
-        return raycastHit2D.collider != null;
+         return GC.Grounded;
+        //return (false);
     }
 }
