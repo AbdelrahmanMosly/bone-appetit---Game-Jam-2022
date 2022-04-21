@@ -57,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else //stop it
         {
-            
             rigidbody.velocity = new Vector2 (0 , rigidbody.velocity.y);
             anim.SetBool("Run", false);
         }
