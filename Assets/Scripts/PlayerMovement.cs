@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GroundCheck GC;
 
 
-    private CapsuleCollider boxCollider;
     private Rigidbody rigidbody;
     
     
@@ -19,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        boxCollider = GetComponent<CapsuleCollider>();
         //anim = GetComponent<Animator>();
     }
 
