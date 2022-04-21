@@ -6,9 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveVelocity = 20f;
     [SerializeField] private float jumpVelocity = 50f;
-    [SerializeField] private LayerMask platformLayerMask;
     [SerializeField] private Animator anim;
     [SerializeField] private GroundCheck GC;
+    [SerializeField] private GameObject PlayerMesh;
 
 
     private Rigidbody rigidbody;
@@ -35,20 +35,25 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
             rigidbody.velocity = Vector2.up * jumpVelocity;
+            anim.Play("Jump", 0);
         }
+        else
+            anim.SetBool("Grounded", IsGrounded());
+        
+
     }
     private void MoveCheck()
     {
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             rigidbody.velocity = new Vector2(-moveVelocity, rigidbody.velocity.y);
-            transform.localScale = new Vector3(2, 2, -2);
             anim.SetBool("Run",true);
+            PlayerMesh.transform.localScale = new Vector3(100, -100, 100);
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) { 
             rigidbody.velocity=new Vector2(moveVelocity , rigidbody.velocity.y);
-            transform.localScale = new Vector3(2, 2, 2);
             anim.SetBool("Run", true);
+            PlayerMesh.transform.localScale = new Vector3(100,100,100);
         }
         else //stop it
         {
@@ -60,6 +65,5 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
          return GC.Grounded;
-        //return (false);
     }
 }
