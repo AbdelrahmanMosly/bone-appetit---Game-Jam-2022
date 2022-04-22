@@ -8,6 +8,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private GroundCheck GC1;
     [SerializeField] private GroundCheck GC2;
     [SerializeField] private float moveVelocity = 20f;
+    [SerializeField] private GameObject ObstacleThrower;
+    [SerializeField] private PlayerInRange playerInRange;
+
 
     private int direction=-1;
     Rigidbody rigidbody;
@@ -22,11 +25,23 @@ public class EnemyMovement : MonoBehaviour
     }
     private void move()
     {
+        playerDetectedMove();
+        normalMove();
+    }
+    private void playerDetectedMove()
+    {
+        if (playerInRange.playerInRange)
+        {
+            direction = (playerInRange.getPlayerTransform().position.x - transform.position.x) > 0 ? 1 : -1;
+            ObstacleThrower.transform.localPosition = new Vector3(direction, 0, 0);
+        }
+    }
+    private void normalMove()
+    {
         if (goingToFall())
         {
             direction *= -1;
-            transform.eulerAngles=new Vector3(0, 180*direction, 0);
-            transform.position = new Vector3(transform.position.x+direction*0.1f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + direction * 0.1f, transform.position.y, transform.position.z);
         }
         else
         {
