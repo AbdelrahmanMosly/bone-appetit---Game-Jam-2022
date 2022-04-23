@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 8301841296470673812}
   - component: {fileID: 8301841296470673813}
   - component: {fileID: 8301841296470673823}
+  - component: {fileID: 4405402151403432218}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -204,6 +205,8 @@ MonoBehaviour:
   GC1: {fileID: 8301841296446069353}
   GC2: {fileID: 8301841297499367228}
   moveVelocity: 1
+  ObstacleThrower: {fileID: 2665710209137043704, guid: f958c2fa17d88fb4eba5a8b2b9173b2e, type: 3}
+  playerInRange: {fileID: 4405402151403432218}
 --- !u!65 &8301841296470673823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -217,6 +220,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2.2, z: 1}
   m_Center: {x: -0.00000047683716, y: 0, z: 0}
+--- !u!114 &4405402151403432218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8301841296470673815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99afda233ad00f2499642887369af009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInRange: 0
 --- !u!1 &8301841297114941562
 GameObject:
   m_ObjectHideFlags: 0
