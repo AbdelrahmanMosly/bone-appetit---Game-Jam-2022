@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
         normalMove();
     }
     private void playerDetectedMove()
-    {
+    {   
         if (playerInRange.playerInRange)
         {
             direction = (playerInRange.getPlayerTransform().position.x - transform.position.x) > 0 ? 1 : -1;
