@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5368404539423173168}
   - component: {fileID: 3680401577918989976}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Obstacle Thrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 8301841296446069354}
   - component: {fileID: 8301841296446069352}
   - component: {fileID: 8301841296446069353}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FloorDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 8301841296470673813}
   - component: {fileID: 8301841296470673823}
   - component: {fileID: 4405402151403432218}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 8301841297499367229}
   - component: {fileID: 8301841297499367227}
   - component: {fileID: 8301841297499367228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FloorDetector (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
