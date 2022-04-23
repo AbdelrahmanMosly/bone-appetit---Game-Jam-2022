@@ -440,6 +440,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4651178781689507078, guid: f9f12e2d919f12c43ad1a3cb839db685, type: 3}
   m_PrefabInstance: {fileID: 427058682}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1564743837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2665710209137043704, guid: f958c2fa17d88fb4eba5a8b2b9173b2e, type: 3}
+  m_PrefabInstance: {fileID: 3947018617553533098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1843547648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8301841296470673815, guid: 9bf94de6d2f58594c948a03063be9efd, type: 3}
@@ -2546,6 +2551,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8301841296470673813, guid: 9bf94de6d2f58594c948a03063be9efd, type: 3}
+      propertyPath: playerInRange
+      value: 
+      objectReference: {fileID: 1843547657}
+    - target: {fileID: 8301841296470673813, guid: 9bf94de6d2f58594c948a03063be9efd, type: 3}
+      propertyPath: ObstacleThrower
+      value: 
+      objectReference: {fileID: 1564743837}
     - target: {fileID: 8301841297114941542, guid: 9bf94de6d2f58594c948a03063be9efd, type: 3}
       propertyPath: m_RootOrder
       value: 4
