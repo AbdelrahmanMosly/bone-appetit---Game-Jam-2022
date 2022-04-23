@@ -22,7 +22,7 @@ public class ObstacleThrower : MonoBehaviour
     private IEnumerator throwObstacle()
     {
         justThrow = true;
-        Transform obstacleInstance = Instantiate(obstacle, transform.position, transform.rotation);
+        Transform obstacleInstance = Instantiate(obstacle, transform.position, Quaternion.identity);
         Rigidbody rigidbody = obstacleInstance.GetComponent<Rigidbody>();
         rigidbody.velocity = (playerInRange.getPlayerTransform().position - transform.position) * projectileVelocityMultiplier;
         Destroy(obstacleInstance.gameObject, 3f);
