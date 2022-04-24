@@ -5,43 +5,62 @@ using UnityEngine;
 public class Tile_Gen : MonoBehaviour
 {
     [SerializeField] private GameObject tile;
-    [SerializeField] private Transform player;
+    [SerializeField] private int gameObjectsArrPoolSize;
+    [SerializeField] private float distanceBetweenTiles;
+    [SerializeField] private int allowance;
+    [SerializeField] private int conditionalDisplacement;
+    [SerializeField] private int maxDisplacement;
 
-    private List<GameObject> Tiles = new List<GameObject>();
+
+    private GameObject[] gameObjectsArr;
+    
 
     private Camera cam;
-    private Vector2 prePos,currPos;
+    private float windowSize;
+    private int oldestTileIndex=0;
 
     void Start()
     {
+        gameObjectsArr= new GameObject[gameObjectsArrPoolSize];
         cam = Camera.main;
-        prePos = player.position;
+        windowSize = cam.GetComponent<Camera>().orthographicSize;
+        spawnInitialTiles();
     }
+    private void spawnInitialTiles()
+    {
+        for(int i = 0; i < gameObjectsArrPoolSize; i++)
+        {
+            int rand = Random.Range(-maxDisplacement, maxDisplacement);
+            gameObjectsArr[i] = Instantiate(tile,new Vector3(rand+((i>0)? gameObjectsArr[i-1].transform.position.x:0),
+                                                          (i + 1) * distanceBetweenTiles,
+                                                          0),
+                                                           Quaternion.identity);
+            if (i > 0 && Mathf.Abs(gameObjectsArr[i - 1].transform.position.x - gameObjectsArr[i].transform.position.x) < allowance)
+                gameObjectsArr[i].transform.position = new Vector3(gameObjectsArr[i].transform.position.x + conditionalDisplacement
+                                    , gameObjectsArr[i].transform.position.y
+                                    , 0
+                                    ) ;
+        }
 
+    }
+   
     void Update()
     {
-
-        transform.position = new Vector3(0,player.position.y+5,0);
-
-        currPos = player.position;
         spawnTiles();
     }
-
     private void spawnTiles()
     {
-        //the player position if higher than (previous positon+10) than spawn one tile in either 1 or 2 or 3
-
-        if (currPos.y > (prePos.y + 3))
+        if((cam.transform.position.y - windowSize)- distanceBetweenTiles * 5> gameObjectsArr[oldestTileIndex].transform.position.y)
         {
-            int rand = Random.Range(0, 3);
-            GameObject t = Instantiate(tile, transform.GetChild(rand));
-            t.transform.parent = null;
-            prePos = currPos;
-            //Tiles.Add();
+            Destroy(gameObjectsArr[oldestTileIndex]);
+            int farestIndex = (oldestTileIndex - 1) % gameObjectsArrPoolSize < 0 ? gameObjectsArrPoolSize - 1 : (oldestTileIndex - 1) % gameObjectsArrPoolSize;
+            float farestTilePositionY = gameObjectsArr[farestIndex].transform.position.y;
+            gameObjectsArr[oldestTileIndex] = Instantiate(tile,new Vector3( Random.Range(-10, 10),
+                                                           farestTilePositionY + distanceBetweenTiles,
+                                                            0),
+                                                           Quaternion.identity);
+            oldestTileIndex=(oldestTileIndex+1) % gameObjectsArrPoolSize;
         }
-     
-        
     }
-
 
 }
