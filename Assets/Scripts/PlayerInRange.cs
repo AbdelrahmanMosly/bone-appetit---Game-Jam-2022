@@ -27,6 +27,13 @@ public class PlayerInRange : MonoBehaviour
 
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
     public Transform getPlayerTransform()
     {
        return player;
