@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8215252957340701618}
   - component: {fileID: 418950173239304068}
   - component: {fileID: 2301307954886454184}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3680401577918989976}
   m_Layer: 7
   m_Name: Obstacle Thrower
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 8301841296446069353}
   m_Layer: 7
   m_Name: FloorDetector
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 4405402151403432218}
   m_Layer: 7
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 8301841297499367228}
   m_Layer: 7
   m_Name: FloorDetector (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

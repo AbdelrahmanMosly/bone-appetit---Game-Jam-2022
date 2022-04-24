@@ -225,8 +225,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 8301841297114941562, guid: 9bf94de6d2f58594c948a03063be9efd, type: 3}
-  gameObjectsPoolSize: 20
+  gameObjectsArrPoolSize: 20
   distanceBetweenTiles: 6
+  allowance: 3
+  conditionalDisplacement: 6
+  maxDisplacement: 15
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +434,7 @@ GameObject:
   - component: {fileID: 1429514159}
   - component: {fileID: 1429514158}
   - component: {fileID: 1429514157}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -528,20 +531,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RootBone: {fileID: 411658089104470583}
   StoppedFrameCount: 5
---- !u!136 &1962834116
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148094392221}
-  m_Material: {fileID: 13400000, guid: 1c1881c15f3f1a547a16e24dfa7da7ef, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.35
-  m_Height: 1.25
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.62, z: 0.16}
 --- !u!54 &1962834117
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -631,7 +620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148094392221}
   m_LocalRotation: {x: -0, y: 0.72350955, z: -0, w: 0.6903144}
-  m_LocalPosition: {x: 9.66, y: 1.22, z: 0.073508695}
+  m_LocalPosition: {x: 9.66, y: 2.29, z: 0.073508695}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 5190211375566516650}
@@ -697,11 +686,11 @@ GameObject:
   - component: {fileID: 543450652622097703}
   - component: {fileID: 5866666020823062365}
   - component: {fileID: 1962834117}
-  - component: {fileID: 1962834116}
   - component: {fileID: 919132148094392223}
   - component: {fileID: 919132148094392222}
   - component: {fileID: 919132148094392225}
   - component: {fileID: 1962834114}
+  - component: {fileID: 919132148094392224}
   m_Layer: 3
   m_Name: characterJam
   m_TagString: Player
@@ -743,6 +732,19 @@ MonoBehaviour:
   projectileVelocityMultiplier: 50
   destroyTime: 3
   PlayerMesh: {fileID: 9221529622191473361}
+--- !u!65 &919132148094392224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148094392221}
+  m_Material: {fileID: 13400000, guid: 1c1881c15f3f1a547a16e24dfa7da7ef, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.373784, z: 0.81538624}
+  m_Center: {x: 1.063466e-11, y: 0.67530304, z: 0.09729609}
 --- !u!114 &919132148094392225
 MonoBehaviour:
   m_ObjectHideFlags: 0
