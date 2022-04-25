@@ -11,7 +11,7 @@ public class PlayerInRange : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(Physics.Raycast(transform.position, (other.transform.position-transform.position), out hit))
+            if(Physics.Raycast(transform.position, ((other.transform.position-transform.position)+new Vector3(0,1.2f,0)) , out hit))
             {
                 if (hit.collider.CompareTag("Player"))
                 {
@@ -23,7 +23,15 @@ public class PlayerInRange : MonoBehaviour
                     playerInRange = false;
                 }
             }
+            Debug.DrawRay(transform.position, ((other.transform.position - transform.position) + new Vector3(0, 1.2f, 0)), Color.yellow);
 
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
         }
     }
     public Transform getPlayerTransform()

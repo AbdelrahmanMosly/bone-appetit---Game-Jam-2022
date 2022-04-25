@@ -29,11 +29,10 @@ public class EnemyMovement : MonoBehaviour
         normalMove();
     }
     private void playerDetectedMove()
-    {
+    {   
         if (playerInRange.playerInRange)
         {
             direction = (playerInRange.getPlayerTransform().position.x - transform.position.x) > 0 ? 1 : -1;
-            ObstacleThrower.transform.localPosition = new Vector3(direction, 0, 0);
         }
     }
     private void normalMove()
@@ -47,6 +46,7 @@ public class EnemyMovement : MonoBehaviour
         {
             rigidbody.velocity = new Vector2(direction * moveVelocity, rigidbody.velocity.y);
         }
+        ObstacleThrower.transform.localPosition = new Vector3(direction, 0, 0);
     }
     private bool goingToFall()
     {

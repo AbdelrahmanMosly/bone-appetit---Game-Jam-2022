@@ -12,6 +12,7 @@ public class PlayerThrowKnife : MonoBehaviour
     private float destroyTime;
 
     [SerializeField] private GameObject PlayerMesh;
+    [SerializeField] private GroundCheck GC;
 
     Vector3 aimDirection;
     Vector3 worldPosition;
@@ -20,7 +21,17 @@ public class PlayerThrowKnife : MonoBehaviour
         RotateGeneratorToMousePosition();
         if(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1)){
             ThrowKnife();
-            GetComponent<Animator>().Play("Throw",0);
+
+            if (GC.Grounded)
+            {
+                GetComponent<Animator>().Play("Throw", 0);
+            }
+            else
+            {
+                GetComponent<Animator>().Play("Falling_Throwing", 0);
+            }
+
+
             if (worldPosition.x < transform.position.x)
             {
                 PlayerMesh.transform.localScale = new Vector3(100, -100, 100);
@@ -44,7 +55,7 @@ public class PlayerThrowKnife : MonoBehaviour
     }
     private  void ThrowKnife()
     {
-        Transform knifeInstance = Instantiate(knife, transform.position, transform.rotation);
+        Transform knifeInstance = Instantiate(knife, transform.position+ new Vector3(0,1,0), transform.rotation);
         Rigidbody rigidbody = knifeInstance.GetComponent<Rigidbody>();
         rigidbody.velocity = aimDirection * projectileVelocityMultiplier;
         Destroy(knifeInstance.gameObject, destroyTime);
