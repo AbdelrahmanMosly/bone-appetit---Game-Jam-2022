@@ -10,6 +10,7 @@ public class ObstacleThrower : MonoBehaviour
     private float projectileVelocityMultiplier;
     [SerializeField]
     private PlayerInRange playerInRange;
+    [SerializeField] private Animator anim;
 
     private bool justThrow;
     private void Update()
@@ -22,11 +23,14 @@ public class ObstacleThrower : MonoBehaviour
     private IEnumerator throwObstacle()
     {
         justThrow = true;
+        anim.SetBool("throw",true);
+
         Transform obstacleInstance = Instantiate(obstacle, transform.position, Quaternion.identity);
         Rigidbody rigidbody = obstacleInstance.GetComponent<Rigidbody>();
         rigidbody.velocity = (playerInRange.getPlayerTransform().position - transform.position) * projectileVelocityMultiplier;
         Destroy(obstacleInstance.gameObject, 3f);
         yield return new WaitForSeconds(0.3f);
         justThrow = false;
+        anim.SetBool("throw", false);
     }
 }

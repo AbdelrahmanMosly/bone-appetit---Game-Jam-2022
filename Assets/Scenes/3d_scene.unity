@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7897803311372058917, guid: 0448188cfd84de84f954d93f9ed0b8f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.3650684
+      value: -12.84
       objectReference: {fileID: 0}
     - target: {fileID: 7897803311372058917, guid: 0448188cfd84de84f954d93f9ed0b8f7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -544,7 +544,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f923b97aafd21bc4ba0695907a7407fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -789,6 +789,7 @@ MonoBehaviour:
   projectileVelocityMultiplier: 50
   destroyTime: 3
   PlayerMesh: {fileID: 9221529622191473361}
+  GC: {fileID: 233526044}
 --- !u!65 &919132148094392224
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5452759669229818413}
   - component: {fileID: 7168384096428043111}
   - component: {fileID: 5935336914977820659}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4889831904993878901}
   - component: {fileID: 1197926991518073092}
   - component: {fileID: 4293835489710311819}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shebeb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
