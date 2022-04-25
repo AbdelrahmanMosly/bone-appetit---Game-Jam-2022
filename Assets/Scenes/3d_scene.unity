@@ -132,8 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 233526042}
-  - component: {fileID: 233526043}
   - component: {fileID: 233526044}
+  - component: {fileID: 233526043}
   m_Layer: 3
   m_Name: Feet
   m_TagString: Player
@@ -149,14 +149,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233526041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.039000005, z: 0.13500002}
+  m_LocalPosition: {x: 0, y: -0.019, z: 0.13500002}
   m_LocalScale: {x: 0.24145465, y: 0.24145463, z: 0.24145465}
   m_Children: []
   m_Father: {fileID: 543450652622097703}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &233526043
-BoxCollider:
+--- !u!135 &233526043
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -166,8 +166,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 3.46}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.85
+  m_Center: {x: 0, y: 0.67, z: 0}
 --- !u!114 &233526044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceaaafb9d79e3164ba244df2e2455517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 8301841297114941562, guid: 9bf94de6d2f58594c948a03063be9efd, type: 3}
+  tile: {fileID: 1863598631710418259, guid: 7e597c248e53dd342aa18c483c78af8f, type: 3}
   gameObjectsArrPoolSize: 20
   distanceBetweenTiles: 6
   allowance: 3
