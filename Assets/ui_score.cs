@@ -19,6 +19,6 @@ public class ui_score : MonoBehaviour
     }
     private void scoreUpdate()
     {
-        scoreText.text = "Score : "+score;   
+        scoreText.text = "Brains : "+score;   
     }
 }
