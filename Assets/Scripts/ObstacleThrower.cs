@@ -23,13 +23,13 @@ public class ObstacleThrower : MonoBehaviour
     private IEnumerator throwObstacle()
     {
         justThrow = true;
-        anim.SetBool("throw",true);
-
+        anim.SetBool("throw", true);
         Transform obstacleInstance = Instantiate(obstacle, transform.position, Quaternion.identity);
         Rigidbody rigidbody = obstacleInstance.GetComponent<Rigidbody>();
         rigidbody.velocity = (playerInRange.getPlayerTransform().position - transform.position) * projectileVelocityMultiplier;
+        rigidbody.velocity += new Vector3(0, 5f, 0); 
         Destroy(obstacleInstance.gameObject, 3f);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
         justThrow = false;
         anim.SetBool("throw", false);
     }

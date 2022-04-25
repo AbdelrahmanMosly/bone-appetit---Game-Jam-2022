@@ -7,35 +7,39 @@ public class AttachEnemyToKnife : MonoBehaviour
     [SerializeField]
     private string enemyTag;
     [SerializeField]
-    private GameObject initialEnemyParent;
+    private string parentTag;
+    [SerializeField]
+    private GameObject brain;
+    [SerializeField]
+    private ObstacleThrower thrower;
+
     private int enemyCaughtCount;
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    private void OnTriggerEnter(Collider collision)
     {
 
         if (collision.gameObject.CompareTag(enemyTag) 
-            && collision.gameObject.transform.parent== initialEnemyParent)
+            && collision.gameObject.transform.parent.CompareTag(parentTag))
         {
-            removeRigidBody2DCompoenent(collision);
+            Instantiate(brain);
+            killEnemy(collision);
             adjustPosition(collision);
-            adjustAngle(collision);
             adjustParent(collision);
         }
     }
-    private void removeRigidBody2DCompoenent(Collider2D collision)
+    private void killEnemy(Collider collision)
     {
-        Destroy(collision.gameObject.GetComponent<Rigidbody2D>());
+        Destroy(collision.gameObject.GetComponent<Rigidbody>());
+        Destroy(collision.gameObject.GetComponent<EnemyMovement>());
+        Destroy(collision.gameObject.transform.GetChild(2).GetComponent<ObstacleThrower>());
     }
-    private void adjustParent(Collider2D collision)
+    private void adjustParent(Collider collision)
     {
-        collision.gameObject.transform.SetParent(transform.parent, false);
-    }
-    private void adjustAngle(Collider2D collision)
-    {
-        collision.gameObject.transform.eulerAngles = new Vector3(0, 0, -90);
+        collision.gameObject.transform.SetParent(transform, false);
     }
   
-    private void adjustPosition(Collider2D collision)
+    private void adjustPosition(Collider collision)
     {
-        collision.gameObject.transform.position = new Vector3(0, (enemyCaughtCount++)*0.5f, 0);
+        collision.gameObject.transform.localPosition = new Vector3((enemyCaughtCount++) * 0.5f,0 , 0);
     }
 }
