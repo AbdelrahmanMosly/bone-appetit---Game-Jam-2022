@@ -7,9 +7,23 @@ public class ui_score : MonoBehaviour
 {
     [SerializeField]
     private Text scoreText;
+    
+    [SerializeField]
+    private GameObject gameoverscreen;
 
     private int score;
-   
+
+
+    public void enable_screen()
+    {
+        gameoverscreen.active = true;
+    }
+
+    public void disable_screen()
+    {
+        gameoverscreen.active = false;
+    }
+
 
     // Update is called once per frame
     public void scoreIncrement()
@@ -21,4 +35,10 @@ public class ui_score : MonoBehaviour
     {
         scoreText.text = "Brains : "+score;   
     }
+
+    public void reply()
+    {
+        Application.LoadLevel(0);
+    }
+
 }
