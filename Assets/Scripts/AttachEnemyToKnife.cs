@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class AttachEnemyToKnife : MonoBehaviour
 {
+
+
     [SerializeField]
     private string enemyTag;
     [SerializeField]
     private string parentTag;
     [SerializeField]
     private GameObject brain;
-    [SerializeField]
-    private ObstacleThrower thrower;
 
     private int enemyCaughtCount;
     
@@ -21,7 +21,9 @@ public class AttachEnemyToKnife : MonoBehaviour
         if (collision.gameObject.CompareTag(enemyTag) 
             && collision.gameObject.transform.parent.CompareTag(parentTag))
         {
-            Instantiate(brain);
+            GameObject brainInstantiation= Instantiate(brain ,transform);
+            brainInstantiation.transform.SetParent(null);
+            brainInstantiation.transform.position += new Vector3(0, 0, -brainInstantiation.transform.position.z);
             killEnemy(collision);
             adjustPosition(collision);
             adjustParent(collision);

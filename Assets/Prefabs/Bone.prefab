@@ -108,8 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTag: Enemy
   parentTag: Platform
-  brain: {fileID: 7408829206694206367, guid: 0448188cfd84de84f954d93f9ed0b8f7, type: 3}
-  thrower: {fileID: 0}
+  brain: {fileID: 4338049686313889882, guid: 0448188cfd84de84f954d93f9ed0b8f7, type: 3}
 --- !u!1 &7321947752066867502
 GameObject:
   m_ObjectHideFlags: 0

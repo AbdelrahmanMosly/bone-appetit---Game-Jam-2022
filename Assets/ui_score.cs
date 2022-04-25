@@ -5,15 +5,20 @@ using UnityEngine.UI;
 
 public class ui_score : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Text scoreText;
+
+    private int score;
+   
 
     // Update is called once per frame
-    void Update()
+    public void scoreIncrement()
     {
-        
+        score++;
+        scoreUpdate();
+    }
+    private void scoreUpdate()
+    {
+        scoreText.text = "Score : "+score;   
     }
 }
