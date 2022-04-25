@@ -20,11 +20,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(objectToFollow != null && 
-        //    objectToFollow.transform.position.y> transform.position.y)
-        //{
-        //    transform.position=new Vector3(transform.position.x,transform.position.y+0.01f,transform.position.z);
-        //}
+        
         if (target.position.y >= transform.position.y - 3)
         {
             Vector3 interpolatedPosition = Vector3.Lerp(previous_loc, target.position, ratio);
@@ -32,8 +28,6 @@ public class CameraFollow : MonoBehaviour
 
             transform.position = interpolatedPosition + Offset;
         }
-
-        //transform.LookAt(interpolatedPosition);
 
     }
 }

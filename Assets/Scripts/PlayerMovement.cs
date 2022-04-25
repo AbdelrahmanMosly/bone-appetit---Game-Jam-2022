@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         MM = gameObject.GetComponent<MovementManager>();
 
-        //anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -57,9 +56,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //MM.LerpMove(rigidbody, Player_velocity, moveVelocity, 0f);
         MM.Move(rigidbody, Player_velocity, moveVelocity);
-        //MoveCheck();
     }
     private void JumpCheck()
     {
@@ -73,35 +70,6 @@ public class PlayerMovement : MonoBehaviour
         
 
     }
-
-    //Vector3 velocity = Vector3.zero;
-
-    //private void MoveCheck()
-    //{
-    //    //if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-    //    //{
-    //    //    velocity = new Vector2(-moveVelocity, velocity.y);
-    //    //    anim.SetBool("Run",true);
-
-
-    //    //    PlayerMesh.transform.localScale = new Vector3(100, -100, 100);
-    //    //}
-    //    //else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
-    //    //    velocity = new Vector2(moveVelocity , velocity.y);
-    //    //    anim.SetBool("Run", true);
-
-    //    //    PlayerMesh.transform.localScale = new Vector3(100,100,100);
-    //    //}
-    //    //else //stop it
-    //    //{
-    //    //    velocity = new Vector2 (0 , velocity.y);
-    //    //    anim.SetBool("Run", false);
-    //    //}
-    //    //if (velocity != Vector3.zero)
-    //    //{
-    //    //    rigidbody.velocity = velocity;
-    //    //}
-    //}
 
 
     private bool IsGrounded()
