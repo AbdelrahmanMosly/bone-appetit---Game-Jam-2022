@@ -10,7 +10,7 @@ public class ObstacleThrower : MonoBehaviour
     private float projectileVelocityMultiplier;
     [SerializeField]
     private PlayerInRange playerInRange;
-    [SerializeField] private Animator anim;
+    public Animator anim;
 
     private bool justThrow;
     private void Update()

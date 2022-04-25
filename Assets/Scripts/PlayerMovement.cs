@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject PlayerMesh;
     [SerializeField] private MovementManager MM;
 
+
     private Vector3 Player_velocity = Vector3.zero;
     private Rigidbody rigidbody;
     private float horiz, vert;
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         MM = gameObject.GetComponent<MovementManager>();
+
         //anim = GetComponent<Animator>();
     }
 
@@ -30,7 +32,9 @@ public class PlayerMovement : MonoBehaviour
         Player_velocity = new Vector2(horiz, vert);
         animationFix();
         JumpCheck();
+       
     }
+    
 
     void animationFix()
     {

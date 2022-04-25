@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4338049685733143630}
   - component: {fileID: 4338049685733143629}
   - component: {fileID: 4338049685733143628}
-  m_Layer: 0
+  - component: {fileID: 6990012326503997080}
+  m_Layer: 10
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +103,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &6990012326503997080
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4338049685733143634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5373124, y: 0.7749836, z: 0.9959488}
+  m_Center: {x: 1.10517894e-16, y: -0.031569384, z: -0.26360458}
 --- !u!1 &4338049686313889882
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +128,7 @@ GameObject:
   - component: {fileID: 4338049686313889876}
   - component: {fileID: 4338049686313889878}
   - component: {fileID: 4338049686313889883}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: brain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4338049686313889882}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.1416, y: 3.48, z: 0}
+  m_LocalPosition: {x: -5.1416, y: 2, z: 0}
   m_LocalScale: {x: 0.97, y: 0.97, z: 0.97}
   m_Children:
   - {fileID: 4338049685733143635}
@@ -163,7 +177,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &4338049686313889883
 MonoBehaviour:

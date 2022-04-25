@@ -13,6 +13,7 @@ public class AttachEnemyToKnife : MonoBehaviour
     [SerializeField]
     private GameObject brain;
 
+    private ObstacleThrower obstacleThrow;
     private int enemyCaughtCount;
     
     private void OnTriggerEnter(Collider collision)
@@ -33,7 +34,10 @@ public class AttachEnemyToKnife : MonoBehaviour
     {
         Destroy(collision.gameObject.GetComponent<Rigidbody>());
         Destroy(collision.gameObject.GetComponent<EnemyMovement>());
-        Destroy(collision.gameObject.transform.GetChild(2).GetComponent<ObstacleThrower>());
+        obstacleThrow = collision.gameObject.transform.GetChild(2).GetComponent<ObstacleThrower>();
+        obstacleThrow.anim.speed=0;
+        Destroy(obstacleThrow);
+
     }
     private void adjustParent(Collider collision)
     {

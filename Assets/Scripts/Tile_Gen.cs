@@ -31,7 +31,7 @@ public class Tile_Gen : MonoBehaviour
         for(int i = 0; i < gameObjectsArrPoolSize; i++)
         {
             int rand = Random.Range(-maxDisplacement, maxDisplacement);
-            gameObjectsArr[i] = Instantiate(tile,new Vector3(rand+((i>0)? gameObjectsArr[i-1].transform.position.x:0),
+            gameObjectsArr[i] = Instantiate(tile,new Vector3(rand + ((i>0)? gameObjectsArr[i-1].transform.position.x:0),
                                                           (i + 1) * distanceBetweenTiles,
                                                           0),
                                                            Quaternion.identity);
@@ -52,15 +52,25 @@ public class Tile_Gen : MonoBehaviour
     {
         if((cam.transform.position.y - windowSize)- distanceBetweenTiles * 5> gameObjectsArr[oldestTileIndex].transform.position.y)
         {
+            int rand = Random.Range(-maxDisplacement, maxDisplacement);
             Destroy(gameObjectsArr[oldestTileIndex]);
-            int farestIndex = (oldestTileIndex - 1) % gameObjectsArrPoolSize < 0 ? gameObjectsArrPoolSize - 1 : (oldestTileIndex - 1) % gameObjectsArrPoolSize;
-            float farestTilePositionY = gameObjectsArr[farestIndex].transform.position.y;
-            gameObjectsArr[oldestTileIndex] = Instantiate(tile,new Vector3( Random.Range(-10, 10),
-                                                           farestTilePositionY + distanceBetweenTiles,
+            int newestTileIndex = (oldestTileIndex - 1) % gameObjectsArrPoolSize < 0 ? gameObjectsArrPoolSize - 1 : (oldestTileIndex - 1) % gameObjectsArrPoolSize;
+            float newestTilePositionY = gameObjectsArr[newestTileIndex].transform.position.y;
+            float newestTilePositionX = gameObjectsArr[newestTileIndex].transform.position.x;
+            gameObjectsArr[oldestTileIndex] = Instantiate(tile,new Vector3(rand+newestTilePositionX,
+                                                           newestTilePositionY + distanceBetweenTiles,
                                                             0),
                                                            Quaternion.identity);
+            if ((Mathf.Abs(newestTilePositionX - gameObjectsArr[oldestTileIndex].transform.position.x) )< allowance)
+            {
+                gameObjectsArr[oldestTileIndex].transform.position = new Vector3(gameObjectsArr[oldestTileIndex].transform.position.x + conditionalDisplacement
+                                    , gameObjectsArr[oldestTileIndex].transform.position.y
+                                    , 0
+                                    );
+            }
             oldestTileIndex=(oldestTileIndex+1) % gameObjectsArrPoolSize;
         }
     }
+
 
 }
