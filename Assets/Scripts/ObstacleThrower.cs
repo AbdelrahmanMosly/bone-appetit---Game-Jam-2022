@@ -24,7 +24,7 @@ public class ObstacleThrower : MonoBehaviour
     {
         justThrow = true;
         anim.SetBool("throw", true);
-        Transform obstacleInstance = Instantiate(obstacle, transform.position, Quaternion.identity);
+        Transform obstacleInstance = Instantiate(obstacle, transform.position+new Vector3(0,1,0), Quaternion.identity);
         Rigidbody rigidbody = obstacleInstance.GetComponent<Rigidbody>();
         rigidbody.velocity = (playerInRange.getPlayerTransform().position - transform.position) * projectileVelocityMultiplier;
         rigidbody.velocity += new Vector3(0, 5f, 0); 
