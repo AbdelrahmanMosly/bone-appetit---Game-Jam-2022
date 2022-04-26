@@ -5,7 +5,8 @@ using UnityEngine;
 public class AttachEnemyToKnife : MonoBehaviour
 {
 
-
+    [SerializeField] private AudioSource player_audio1;
+    [SerializeField] private AudioSource player_audio2;
     [SerializeField]
     private string enemyTag;
     [SerializeField]
@@ -13,21 +14,35 @@ public class AttachEnemyToKnife : MonoBehaviour
     [SerializeField]
     private GameObject brain;
 
+    bool isplayed = false;
+
     private ObstacleThrower obstacleThrow;
     private int enemyCaughtCount;
     
     private void OnTriggerEnter(Collider collision)
     {
 
-        if (collision.gameObject.CompareTag(enemyTag) 
+        if (collision.gameObject.CompareTag(enemyTag)
             && collision.gameObject.transform.parent.CompareTag(parentTag))
         {
-            GameObject brainInstantiation= Instantiate(brain ,transform);
+            GameObject brainInstantiation = Instantiate(brain, transform);
             brainInstantiation.transform.SetParent(null);
             brainInstantiation.transform.position += new Vector3(0, 0, -brainInstantiation.transform.position.z);
             killEnemy(collision);
             adjustPosition(collision);
             adjustParent(collision);
+
+            player_audio1.Play();
+            isplayed = true;
+        }
+        else
+        {
+            if (!isplayed)
+            {
+                player_audio2.Play();
+                isplayed = true;
+            }
+
         }
     }
     private void killEnemy(Collider collision)

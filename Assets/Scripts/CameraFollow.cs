@@ -5,7 +5,9 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;
+    [SerializeField] private AudioSource player_audio;
     [SerializeField] private Vector3 Offset = new Vector3(10, 10, 0);
+    [SerializeField] private Texture2D texture_curser;
     public float ratio = 0.3f;
 
 
@@ -16,6 +18,17 @@ public class CameraFollow : MonoBehaviour
     {
         previous_loc = target.position;
         Time.timeScale = 1;
+        Cursor.SetCursor(texture_curser, Vector2.zero, CursorMode.Auto);
+    }
+    bool isplayed = false;
+    void playsound()
+    {
+        if (isplayed == false)
+        {
+            player_audio.Play();
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            isplayed = true;
+        }
     }
 
     // Update is called once per frame
@@ -34,6 +47,7 @@ public class CameraFollow : MonoBehaviour
             
             Camera.main.GetComponent<ui_score>().enable_screen();
             Time.timeScale = 0;
+            playsound();
         }
         
     }
