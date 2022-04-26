@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class collect : MonoBehaviour
 {
-    [SerializeField]private ui_score uiScore;
+    private ui_score uiScore;
     private void Awake()
     {
         uiScore = Camera.main.GetComponent<ui_score>();
@@ -14,6 +14,7 @@ public class collect : MonoBehaviour
         if (other.tag == "Player")
         {
             uiScore.scoreIncrement();
+            Camera.main.GetComponent<AudioSource>().Play();
             Destroy(this.gameObject);
         }
     }
