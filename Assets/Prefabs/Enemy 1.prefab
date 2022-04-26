@@ -929,53 +929,6 @@ Transform:
   m_Father: {fileID: 8247007161654711075}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6444665925385449996
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5300681303641469715}
-  - component: {fileID: 3466860560448298939}
-  m_Layer: 7
-  m_Name: Obstacle Thrower
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5300681303641469715
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6444665925385449996}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8086699524786917557}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3466860560448298939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6444665925385449996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f1b7f364e3b1c46aef3f8f6bc4e0c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacle: {fileID: 4889831904993878901, guid: 920544101208a534fbded39a7cf7113d, type: 3}
-  projectileVelocityMultiplier: 5
-  playerInRange: {fileID: 7418385157825650892}
-  anim: {fileID: 4382113813352356366}
 --- !u!1 &6673130800158690278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,3 +1659,78 @@ Transform:
   m_Father: {fileID: 6452429572377071977}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7353979249036499028
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8086699524786917557}
+    m_Modifications:
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575262129292307032, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: m_Name
+      value: Obstacle Thrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202114634124560367, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 4382113813352356366}
+    - target: {fileID: 6202114634124560367, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+      propertyPath: playerInRange
+      value: 
+      objectReference: {fileID: 7418385157825650892}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+--- !u!4 &5300681303641469715 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3423114662897560391, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+  m_PrefabInstance: {fileID: 7353979249036499028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6444665925385449996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4575262129292307032, guid: 48e44bf125bc46c419b439db2518f6cc, type: 3}
+  m_PrefabInstance: {fileID: 7353979249036499028}
+  m_PrefabAsset: {fileID: 0}

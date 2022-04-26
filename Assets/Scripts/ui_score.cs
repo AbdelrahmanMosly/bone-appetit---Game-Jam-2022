@@ -10,6 +10,8 @@ public class ui_score : MonoBehaviour
     
     [SerializeField]
     private GameObject gameoverscreen;
+    [SerializeField]
+    private ObstacleThrower obstacleThrower;
 
     private int score;
 
@@ -29,7 +31,13 @@ public class ui_score : MonoBehaviour
     public void scoreIncrement()
     {
         score++;
-        scoreUpdate();
+        scoreUpdate(); 
+        if(obstacleThrower.getProjectileVelocity() <= 10.0f)
+             obstacleThrower.updateProjectileSpeed(score);
+    }
+    public int getScore()
+    {
+        return score;
     }
     private void scoreUpdate()
     {

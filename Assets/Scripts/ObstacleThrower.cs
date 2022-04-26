@@ -6,19 +6,25 @@ public class ObstacleThrower : MonoBehaviour
 {
     [SerializeField]
     private Transform obstacle;
-    [SerializeField]
-    private float projectileVelocityMultiplier;
+    private float projectileVelocityMultiplier = 5;
     [SerializeField]
     private PlayerInRange playerInRange;
+    
     public Animator anim;
 
     private bool justThrow;
+    
+    
     private void Update()
     {
         if (!justThrow && playerInRange.playerInRange)
         {
             StartCoroutine( throwObstacle());
         }
+    }
+    public void updateProjectileSpeed(float score)
+    {
+      projectileVelocityMultiplier += score/200.0f ;
     }
     private IEnumerator throwObstacle()
     {
@@ -32,5 +38,9 @@ public class ObstacleThrower : MonoBehaviour
         yield return new WaitForSeconds(1f);
         justThrow = false;
         anim.SetBool("throw", false);
+    }
+    public float getProjectileVelocity()
+    {
+        return projectileVelocityMultiplier;
     }
 }
