@@ -9,21 +9,24 @@ public class ui_score : MonoBehaviour
     private Text scoreText;
     
     [SerializeField]
-    private GameObject gameoverscreen;
+    private GameObject youNeverDie;
     [SerializeField]
     private ObstacleThrower obstacleThrower;
+
+    [SerializeField]
+    private GameObject player;
 
     private int score;
 
 
     public void enable_screen()
     {
-        gameoverscreen.active = true;
+        youNeverDie.active = true;
     }
 
     public void disable_screen()
     {
-        gameoverscreen.active = false;
+        youNeverDie.active = false;
     }
 
 
@@ -32,7 +35,7 @@ public class ui_score : MonoBehaviour
     {
         score++;
         scoreUpdate(); 
-        if(obstacleThrower.getProjectileVelocity() <= 10.0f)
+        if(obstacleThrower.getProjectileVelocity() <=20.0f)
              obstacleThrower.updateProjectileSpeed(score);
     }
     public int getScore()
@@ -44,9 +47,12 @@ public class ui_score : MonoBehaviour
         scoreText.text = "Brains : "+score;   
     }
 
-    public void reply()
+    public IEnumerator reply()
     {
-        Application.LoadLevel(0);
+        enable_screen();
+        player.transform.position =new Vector3(transform.position.x,transform.position.y,0);
+        yield return new WaitForSeconds(1);
+        disable_screen();
     }
 
 }

@@ -44,10 +44,9 @@ public class CameraFollow : MonoBehaviour
         }
         else if(target.position.y < transform.position.y - 15)
         {
-            
-            Camera.main.GetComponent<ui_score>().enable_screen();
-            Time.timeScale = 0;
             playsound();
+            StartCoroutine(Camera.main.GetComponent<ui_score>().reply());
+        
         }
         
     }

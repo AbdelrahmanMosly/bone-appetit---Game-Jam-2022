@@ -6,7 +6,7 @@ public class ObstacleThrower : MonoBehaviour
 {
     [SerializeField]
     private Transform obstacle;
-    private float projectileVelocityMultiplier = 5;
+    private float projectileVelocityMultiplier = 7f;
     [SerializeField]
     private PlayerInRange playerInRange;
     
@@ -33,9 +33,9 @@ public class ObstacleThrower : MonoBehaviour
         Transform obstacleInstance = Instantiate(obstacle, transform.position, Quaternion.identity);
         Rigidbody rigidbody = obstacleInstance.GetComponent<Rigidbody>();
         rigidbody.velocity = (playerInRange.getPlayerTransform().position - transform.position) * projectileVelocityMultiplier;
-        rigidbody.velocity += new Vector3(0, 5f, 0); 
+        rigidbody.velocity += new Vector3(0, 10f, 0); 
         Destroy(obstacleInstance.gameObject, 3f);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         justThrow = false;
         anim.SetBool("throw", false);
     }
